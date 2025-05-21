@@ -74,7 +74,7 @@ func write(cur []string) error {
 	}
 	defer k.Close()
 
-	err = k.SetStringValue(`Path`, strings.Join(cur, string(os.PathListSeparator)))
+	err = k.SetExpandStringValue(`Path`, strings.Join(cur, string(os.PathListSeparator)))
 	if nil != err {
 		return fmt.Errorf("Can't set HKCU Environment[Path]: %s", err)
 	}
